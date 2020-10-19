@@ -1,6 +1,6 @@
 # ExampleProject
 
-This project was initialized using [cxx-cmake-project](https://github.com/creizyz/cxx-cmake-project).
+This project was initialized using [cxx-cmake-executable](https://github.com/creizyz/cxx-cmake-executable).
 
 ## How to build the project
 

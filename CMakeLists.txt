@@ -46,8 +46,6 @@ file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp)
 add_executable(${TARGET_NAME} ${HEADERS} ${SOURCES})
 
 include(cmake/settings/cpp.cmake)
-target_compile_features(${TARGET_NAME} PUBLIC "${${PROJECT_NAME}_CXX_STANDARD}")
-target_compile_options(${TARGET_NAME} PRIVATE "${${PROJECT_NAME}_CXX_FLAGS}")
 
 # ================================================================== #
 # ================================================== # Git Version Tracking
@@ -71,14 +69,19 @@ include(cmake/settings/dependencies.cmake)
 # ================================================== # Other targets
 
 if(${PROJECT_NAME}_BUILD_DOCS)
-  include_directories(docs)
+  add_subdirectory(docs)
 endif()
 
 if(${PROJECT_NAME}_BUILD_TESTS)
-  include_directories(tests)
+  add_subdirectory(tests)
 endif()
 
 # ================================================================== #
 # ================================================== # Installation
 
-install(TARGETS ${TARGET_NAME} DESTINATION bin)
+install(TARGETS ${TARGET_NAME}
+  LIBRARY  DESTINATION lib
+  ARCHIVE  DESTINATION lib
+  RUNTIME  DESTINATION bin
+  INCLUDES DESTINATION include
+)

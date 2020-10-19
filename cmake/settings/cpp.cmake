@@ -1,34 +1,41 @@
 # ================================================================== #
 # ================================================== # C++ Standard
 
-set(${PROJECT_NAME}_CXX_STANDARD cxx_std_20)
+target_compile_features(${TARGET_NAME} PUBLIC cxx_std_20)
 
 # ================================================================== #
 # ================================================== # CLANG flags
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  set(${PROJECT_NAME}_CXX_FLAGS
-    # nothing
-  )
+  # target_compile_options(${TARGET_NAME} ... )
+
+  # ...
+  # ...
+  # ...
 # ================================================================== #
 # ================================================== # GCC flags
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-  set(${PROJECT_NAME}_CXX_FLAGS
-    -Wall
-    -Wextra
-    -pedantic
-    -Werror
-  )
+  target_compile_options(${TARGET_NAME} -W -Wall -Wextra -Werror -pedantic)
+  
+  # ...
+  # ...
+  # ...
+
 # ================================================================== #
 # ================================================== # Intel flags
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "Intel")
-  set(${PROJECT_NAME}_CXX_FLAGS
-    # nothing
-  )
+  # target_compile_options(${TARGET_NAME} ... )
+
+  # ...
+  # ...
+  # ...
+
 # ================================================================== #
 # ================================================== # GCC flags
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-  set(${PROJECT_NAME}_CXX_FLAGS
-    /W4
-    /WX
-  )
+  target_compile_options(${TARGET_NAME} /W4 /WX)
+  
+  # ...
+  # ...
+  # ...
+
 endif()
