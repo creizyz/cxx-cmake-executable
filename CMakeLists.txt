@@ -51,7 +51,7 @@ include(cmake/settings/cpp.cmake)
 # ================================================== # Git Version Tracking
 
 add_subdirectory(external/git_watcher)
-target_link_libraries(${TARGET_NAME} git_watcher)
+target_link_libraries(${TARGET_NAME} PRIVATE git_watcher)
 
 # ================================================================== #
 # ================================================== # Dependencies
