@@ -14,7 +14,7 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 # ================================================================== #
 # ================================================== # GCC flags
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-  target_compile_options(${TARGET_NAME} -W -Wall -Wextra -Werror -pedantic)
+  target_compile_options(${TARGET_NAME} PRIVATE -W -Wall -Wextra -Werror -pedantic)
   
   # ...
   # ...
